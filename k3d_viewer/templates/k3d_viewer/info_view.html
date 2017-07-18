@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>info_view</title>
+	<style>
+		table {
+			font-family:arial,sans-serif;
+			border-collapse:collapse;
+			width:100%;
+		}
+
+		td,th {
+			border:1px solid #dddddd;
+			text-align:left;
+			padding:8px;
+		}
+
+		tr:nth-child(even) {
+			background-color:#dddddd;
+		}
+	</style>
+
+
+    </head>
+        <body>
+        {% if k3dfile is not none %}
+            {% load static %}
+            img_bgr<br/>
+            <IMG SRC="{% static "k3d_viewer/img_bgr.png" %}" alt="img_bgr" /><br/>
+            img_gray<br/>
+            <IMG SRC="{% static "k3d_viewer/img_gray.png" %}" alt="img_gray" /><br/>
+            <table>
+            {% for key,value  in k3dfile.iteritems %}
+                {% if key != 'img_bgr' and key != 'img_gray' and key != 'img_3d' %}  
+                <tr>
+                    <th>{{key}}</th>
+                    <th>{{value}}</th>
+                </tr>
+                {% endif %}
+            {% endfor %}    
+
+
+            </table>
+        {% else %}
+        {% endif %}
+    </body>
+
+</html>
