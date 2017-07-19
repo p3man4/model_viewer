@@ -18,10 +18,10 @@ import smt_process.read_component_db as read_component_db
 import cv2
 import numpy as np
 
+# change below to your DATA_PATH and DP_ROOT
 DATA_PATH='/home/junwon/smt-data/Train_All/'
-
 DP_ROOT='/home/junwon/smt-project/SMT/detect_part/'
-MODEL=DP_ROOT + 'cd_20170714.model'
+
 
 menu={}
 def index(request):
@@ -66,9 +66,6 @@ def info_view(request):
 
         cv2.imwrite('./k3d_viewer/static/k3d_viewer/img_gray.png',k3dfile['img_gray'])
 
-
-        #DC.get_components_from_pickle(MODEL,callback=progressbar_callback)
-        #print 'k3dfile observed_w:',k3dfile['observed_w']
 
     return render(request, 'k3d_viewer/info_view.html',{'q':q,'fileNm':fileNm,'k3dfile':k3dfile})
 
