@@ -13,7 +13,7 @@ What things you need to install the software and how to install them
 
 Please check https://www.continuum.io/downloads
 
-2. Install Django (version 1.11)
+2. Install Django (version 1.11) with conda
 
 ```
 conda install -c anaconda django-1.11.3
