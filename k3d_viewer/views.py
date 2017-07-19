@@ -44,6 +44,10 @@ def info_view(request):
     q = None
     k3dfile=None
     img_buf=None
+    img_bgr_size=None
+    img_gray_size=None
+    img_3d_size=None
+
     print "<<info_view>>"
     if 'fileNm' in request.GET:
         fileNm = request.GET['fileNm']
@@ -60,14 +64,21 @@ def info_view(request):
         DC =  detect_class.ComponentDetector()
         k3dfile = DC.parse_k3d(f.read())
         f.close()
-        print 'k3dfile:',k3dfile.keys()
 
         cv2.imwrite('./k3d_viewer/static/k3d_viewer/img_bgr.png',k3dfile['img_bgr'])
 
+        img_bgr_size = k3dfile['img_bgr'].shape
+
         cv2.imwrite('./k3d_viewer/static/k3d_viewer/img_gray.png',k3dfile['img_gray'])
 
+        img_gray_size =k3dfile['img_gray'].shape
 
-    return render(request, 'k3d_viewer/info_view.html',{'q':q,'fileNm':fileNm,'k3dfile':k3dfile})
+        img3d = k3dfile['img_3d'].astype(int)
+        cv2.imwrite('./k3d_viewer/static/k3d_viewer/img_3d.png',img3d)
+
+        img_3d_size= img3d.shape
+
+    return render(request, 'k3d_viewer/info_view.html',{'q':q,'fileNm':fileNm,'k3dfile':k3dfile,'img_bgr_size':img_bgr_size,'img_gray_size':img_gray_size,'img_3d_size':img_3d_size})
 
 def search_list(request):
     q=None

@@ -25,10 +25,26 @@
         <body>
         {% if k3dfile is not none %}
             {% load static %}
-            img_bgr<br/>
+
+            <table>
+                <tr>
+                    <th>
+                        img_bgr ({{img_bgr_size}})<br/>
+            
             <IMG SRC="{% static "k3d_viewer/img_bgr.png" %}" alt="img_bgr" /><br/>
-            img_gray<br/>
+                    </th>
+                    <th>
+                        img_gray ({{img_gray_size}})<br/>
             <IMG SRC="{% static "k3d_viewer/img_gray.png" %}" alt="img_gray" /><br/>
+                    </th>
+                     <th>
+                         img_3d ({{img_3d_size}})<br/>
+            <IMG SRC="{% static "k3d_viewer/img_3d.png" %}" alt="img_gray" /><br/>
+                    </th>
+                
+                </tr>
+            <table>
+            
             <table>
             {% for key,value  in k3dfile.iteritems %}
                 {% if key != 'img_bgr' and key != 'img_gray' and key != 'img_3d' %}  
