@@ -22,21 +22,21 @@ conda install -c anaconda django-1.11.3
 ### Installing
 A step by step series of examples that tell you have to get a development env running
 
-1. copy this repository
+1. Copy this repository
 ```
 git clone https://github.com/KohYoungResearchAmerica/k3d_viewer 
 ```
-2. change access permission of run.sh
+2. Change access permission of run.sh
 
 ```
 chmod +x run.sh
 ```
-3. open k3d_viewer/viewer.py and change DATA_PATH and DP_ROOT (Detect_Part ROOT)
+3. Open k3d_viewer/viewer.py and change DATA_PATH and DP_ROOT (Detect_Part ROOT)
 
-4. run run.sh
+4. Run run.sh
 ```
 ./run.sh
 ```
-
+5. Open http://127.0.0.1:8000/
 
 
