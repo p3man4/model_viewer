@@ -2,6 +2,9 @@
 
 Django web interface to visualize k3d file
 
+![screen shot](./k3d_viewer_example1.png?raw=true "k3d_viewer screen shot")
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your linux machine for development.
