@@ -19,14 +19,14 @@ Please check https://www.continuum.io/downloads
 conda install -c anaconda django-1.11.3
 ```
 
-3 git clone SMT repository
+3. Copy KYRA's SMT repository
 ```
 git clone https://github.com/KohYoungResearchAmerica/SMT.git
 ```
 
 4. Set PYTHONPATH to detect_part subdirectory
 ```
-export PYTHONPATH "< your SMT ROOT>/detect_part"
+export PYTHONPATH "<your_SMT_ROOT>/detect_part"
 ```
 
 ### Installing
