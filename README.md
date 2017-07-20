@@ -19,6 +19,16 @@ Please check https://www.continuum.io/downloads
 conda install -c anaconda django-1.11.3
 ```
 
+3 git clone SMT repository
+```
+git clone https://github.com/KohYoungResearchAmerica/SMT.git
+```
+
+4. Set PYTHONPATH to detect_part subdirectory
+```
+export PYTHONPATH "< your SMT ROOT>/detect_part"
+```
+
 ### Installing
 A step by step series of examples that tell you have to get a development env running
 
