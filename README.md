@@ -1,6 +1,6 @@
-# k3d_viewer
+# cd.model_viewer
 
-Django web interface to visualize k3d file
+Django web interface to visualize cd.model structure
 
 ![screen shot](./k3d_viewer_example1.png?raw=true "k3d_viewer screen shot")
 
@@ -37,14 +37,14 @@ A step by step series of examples that tell you have to get a development env ru
 
 1. Copy this repository
 ```
-git clone https://github.com/KohYoungResearchAmerica/k3d_viewer 
+git clone https://github.com/KohYoungResearchAmerica/model_viewer 
 ```
 2. Change access permission of run.sh
 
 ```
 chmod +x run.sh
 ```
-3. Open k3d_viewer/viewer.py and change DATA_PATH and DP_ROOT (Detect_Part ROOT)
+3. Open model_viewer/viewer.py and change DP_ROOT (Detect_Part ROOT)
 
 4. Run run.sh
 ```

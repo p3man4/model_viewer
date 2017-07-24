@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>info_view</title>
+	<style>
+        table, th,td {
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+	</style>
+
+
+    </head>
+        <body>
+       {% if content is not none %}
+            {% for k,v in content.iteritems %}
+            <h3>key:{{k}}</h3>
+                {% if k  == 'instances' %}
+                    {% for v2 in v %}
+                    <h3>array[{{forloop.counter0}}]</h3>
+                        <table>
+                            {% for k3,v3 in v2.iteritems %}
+                                <tr>
+                                    <th>{{k3}}</th>
+                                    {% if k3 == 'isolated_component' or k3 == 'hs_histogram' or k3 == 'img_gray' or k3 == 'img_bgr' %}
+                                    <th> long numpy aray</th>
+                                    {% else %}
+                                    <th>{{v3}}</th>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            
+                        </table>
+                    {% endfor %}
+                {% else %}
+                    <table>
+                    {% for k2,v2 in v.iteritems %}
+                        <tr>
+                            <th>{{k2}}</th>
+                            <th>{{v2}}</th>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </body>
+
+</html>

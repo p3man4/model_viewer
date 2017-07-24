@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> search_list</title>
+        <script type="text/javascript">
+
+        function LoadInfo(key,q) {
+            top.frames['info_view'].location="/info_view/?key=" + key + "&q=" + q;
+        }
+
+
+        </script>
+    </head>
+    <body>
+        total:{{ key_list | length }}
+        {% for key in key_list %}
+        <li><a href="#" onclick="javascript:LoadInfo('{{key}}','{{q}}')">{{key}}</li>
+        {% endfor %}
+    </body>
+    <p id="demo"></p>
+</html>
