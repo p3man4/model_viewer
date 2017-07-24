@@ -4,8 +4,21 @@
         <title>info_view</title>
 	<style>
         table, th,td {
+            font-family: arial, sans-serif;
             border:1px solid black;
-            border-collapse: collapse;
+                
+        }
+        table {
+            width:100%;
+        }
+        td,th {
+            border: 1px solid #dddddd;
+            text-align:left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color:#dddddd;
         }
 	</style>
 
@@ -14,10 +27,12 @@
         <body>
        {% if content is not none %}
             {% for k,v in content.iteritems %}
-            <h3>key:{{k}}</h3>
                 {% if k  == 'instances' %}
+                   <h3>(key,value) = ('{{k}}', value list) </h3>
+                    <h3> |value list| = {{v | length}}</h3>
+                    <hr>
                     {% for v2 in v %}
-                    <h3>array[{{forloop.counter0}}]</h3>
+                    <h3>value[{{forloop.counter0}}]</h3>
                         <table>
                             {% for k3,v3 in v2.iteritems %}
                                 <tr>
@@ -33,6 +48,8 @@
                         </table>
                     {% endfor %}
                 {% else %}
+                    <h3>(key,value) = ('{{k}}', value) </h3>
+                    <h3> value: </h3>
                     <table>
                     {% for k2,v2 in v.iteritems %}
                         <tr>

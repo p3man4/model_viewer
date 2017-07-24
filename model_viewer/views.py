@@ -16,30 +16,11 @@ import smt_process.detect_class as detect_class
 import cv2
 import numpy as np
 
-# change below to your DATA_PATH and DP_ROOT
+# change DP_ROOT as needed
 DP_ROOT='/home/junwon/smt-project/SMT/detect_part/'
 
 menu={}
 components={}
-
-def progressbar_callback(msg, i, m):
-    """
-    Callback to display a text based progress bar when loading,
-     storing or performing any other lengthy operation.
-
-    :param msg: Message to be displayed
-    :param i: Current value
-    :param m: Maximal value
-    :return:
-    """
-    print msg,
-    x = int(100 * float(i) / m)
-    print "#" * (x / 2),
-    print "[%2d%%]" % x,
-    print "-" * (50 - x / 2),
-    print "\r",
-    sys.stdout.flush()
-
 
 
 def index(request):
@@ -92,12 +73,6 @@ def search_list(request):
         print 'q:', q
         q= menu[q]
         model = os.path.join(DP_ROOT,q)
-
-  #      DC = detect_class.ComponentDetector()
-  #      DC.get_components_from_pickle(model,callback=progressbar_callback)
-
-   #     components = DC.known_components
-
         
         for key in components:
                 key_list.append(key)

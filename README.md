@@ -50,6 +50,6 @@ chmod +x run.sh
 ```
 ./run.sh
 ```
-5. Open http://127.0.0.1:8000/main/
+5. Open http://127.0.0.1:8001/main/
 
 
