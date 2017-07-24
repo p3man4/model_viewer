@@ -1,6 +1,6 @@
 # cd.model_viewer
 
-Django web interface to visualize cd.model structure
+Django web interface to show cd.model structure
 
 ![screen shot](./k3d_viewer_example1.png?raw=true "k3d_viewer screen shot")
 
