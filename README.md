@@ -2,7 +2,7 @@
 
 Django web interface to show cd.model structure
 
-![screen shot](./k3d_viewer_example1.png?raw=true "k3d_viewer screen shot")
+![screen shot](./model_viewer_example2.png?raw=true "model_viewer screen shot")
 
 
 ## Getting Started

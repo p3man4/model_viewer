@@ -26,11 +26,11 @@
     </head>
         <body>
        {% if content is not none %}
+            <h3> Component:{{key}}</h3>
+            <hr>
             {% for k,v in content.iteritems %}
                 {% if k  == 'instances' %}
-                   <h3>(key,value) = ('{{k}}', value list) </h3>
-                    <h3> |value list| = {{v | length}}</h3>
-                    <hr>
+                <h3>(key,value) = ('{{k}}', value list({{v | length}})) </h3>
                     {% for v2 in v %}
                     <h3>value[{{forloop.counter0}}]</h3>
                         <table>
