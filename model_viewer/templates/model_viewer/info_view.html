@@ -21,11 +21,14 @@
             background-color:#dddddd;
         }
 	</style>
-
+        <script>
+            document.getElementById('imageBox').src="1_iso.png";
+        </script>
 
     </head>
         <body>
        {% if content is not none %}
+            {% load static %}
             <h3> Component:{{key}}</h3>
             <hr>
             {% for k,v in content.iteritems %}
@@ -33,12 +36,35 @@
                 <h3>(key,value) = ('{{k}}', value list({{v | length}})) </h3>
                     {% for v2 in v %}
                     <h3>value[{{forloop.counter0}}]</h3>
+                        {% with gc=forloop.counter0 %}
                         <table>
                             {% for k3,v3 in v2.iteritems %}
                                 <tr>
                                     <th>{{k3}}</th>
-                                    {% if k3 == 'isolated_component' or k3 == 'hs_histogram' or k3 == 'img_gray' or k3 == 'img_bgr' %}
-                                    <th> long numpy array</th>
+                                    {% if k3 == 'isolated_component' %}
+                                    {% with gc|stringformat:"s" as num_str %}
+                                    {% with 'model_viewer/'|add:num_str|add:'_iso.png' as image1_static %}
+                                    <th><img src="{% static image1_static %}" alt="img_iso" /></th>
+                                    {% endwith %}
+                                    {% endwith %}
+                                    {% elif k3 == 'hs_histogram' %}
+                                    {% with gc|stringformat:"s" as num_str %}
+                                    {% with 'model_viewer/'|add:num_str|add:'_hs.png' as image2_static %}
+                                    <th><img src="{% static image2_static %}" alt="img_hs" /></th>
+                                    {% endwith %}
+                                    {% endwith %}
+                                    {% elif k3 == 'img_gray' %}
+                                    {% with gc|stringformat:"s" as num_str %}
+                                    {% with 'model_viewer/'|add:num_str|add:'_gray.png' as image3_static %}
+                                    <th><img src="{% static image3_static %}" alt="img_gray" /></th>
+                                    {% endwith %}
+                                    {% endwith %}
+                                    {% elif  k3 == 'img_bgr' %}
+                                    {% with gc|stringformat:"s" as num_str %}
+                                    {% with 'model_viewer/'|add:num_str|add:'_bgr.png' as image4_static %}
+                                    <th><img src="{% static image4_static %}" alt="img_bgr" /></th>
+                                    {% endwith %}
+                                    {% endwith %}
                                     {% else %}
                                     <th>{{v3}}</th>
                                     {% endif %}
@@ -46,6 +72,7 @@
                             {% endfor %}
                             
                         </table>
+                        {% endwith %}
                     {% endfor %}
                 {% else %}
                     <h3>(key,value) = ('{{k}}', value) </h3>

@@ -56,10 +56,32 @@ def info_view(request):
     if 'q' in request.GET:
         q = request.GET['q']
 
+    img_box={}
 
     if key is not None and q is not None:
         content = components[key]
-    
+        for i,v in enumerate(content['instances']):
+            img_iso = v['isolated_component']
+            cv2.imwrite('./model_viewer/static/model_viewer/' + str(i) +'_iso.png',img_iso)
+
+            img_hs = v['hs_histogram']
+            cv2.imwrite('./model_viewer/static/model_viewer/' + str(i) + '_hs.png',img_hs)
+
+            img_gray = v['img_gray']
+            cv2.imwrite('./model_viewer/static/model_viewer/' + str(i)+ '_gray.png',img_gray)
+            
+            img_bgr = v['img_bgr']
+            cv2.imwrite('./model_viewer/static/model_viewer/' + str(i) + '_bgr.png',img_bgr)
+           
+
+
+
+
+                
+
+
+
+
     return render(request, 'model_viewer/info_view.html',{'q':q,'key':key,'content':content})
 
 def search_list(request):
