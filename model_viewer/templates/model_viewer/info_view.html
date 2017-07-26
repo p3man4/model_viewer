@@ -40,7 +40,7 @@
                         <table>
                             {% for k3,v3 in v2.iteritems %}
                                 <tr>
-                                    <th>{{k3}}</th>
+                                    <th>{{k3}}</th> 
                                     {% if k3 == 'isolated_component' %}
                                     {% with gc|stringformat:"s" as num_str %}
                                     {% with 'model_viewer/'|add:num_str|add:'_iso.png' as image1_static %}
@@ -65,8 +65,8 @@
                                     <th><img src="{% static image4_static %}" alt="img_bgr" /></th>
                                     {% endwith %}
                                     {% endwith %}
-                                    {% else %}
-                                    <th>{{v3}}</th>
+                                    {% else %}  
+                                    <th>{{v3}}</th>   
                                     {% endif %}
                                 </tr>
                             {% endfor %}

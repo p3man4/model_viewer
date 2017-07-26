@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>info_view</title>
+	<style>
+        table, th,td {
+            font-family: arial, sans-serif;
+            border:1px solid black;
+                
+        }
+        table {
+            width:100%;
+        }
+        td,th {
+            border: 1px solid #dddddd;
+            text-align:left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color:#dddddd;
+        }
+	</style>
+        <script>
+            document.getElementById('imageBox').src="1_iso.png";
+        </script>
+
+    </head>
+        <body>
+       {% if content is not none %}
+            {% load static %}
+            <h3> Component:{{key}}</h3>
+            <hr>
+            {% for k,v in content.iteritems %}
+                {% if k  == 'instances' %}
+                <h3>(key,value) = ('{{k}}', value list({{v | length}})) </h3>
+                    <table>
+                        <tr>
+                            <th>index</th>
+                            <th>Image_isolated component</th>
+                            <th>Image_histogram</th>
+                            <th>Image_gray</th>
+                            <th>Image_bgr</th>
+                        </tr>
+                
+                    {% for v2 in v %}
+                        
+                        {% with gc=forloop.counter0 %}
+                        {% with gc|stringformat:"s" as num_str %}
+                        {% with 'model_viewer/'|add:num_str|add:'_iso.png' as image1_static %}
+                        {% with 'model_viewer/'|add:num_str|add:'_hs.png' as image2_static %}
+                        {% with 'model_viewer/'|add:num_str|add:'_gray.png' as image3_static %}
+                        {% with 'model_viewer/'|add:num_str|add:'_bgr.png' as image4_static %}
+                        <tr>
+                           <th>value[{{forloop.counter0}}]</th>
+                           <th><img src="{% static image1_static %}" alt="img_iso" /></th>
+                           <th><img src="{% static image2_static %}" alt="img_hs" /></th>
+                           <th><img src="{% static image3_static %}" alt="img_gray" /></th>
+                           <th><img src="{% static image4_static %}" alt="img_bgr" /></th>
+                        </tr>
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                        </table>
+                {% else %}
+                    <h3>(key,value) = ('{{k}}', value) </h3>
+                    <h3> value: </h3>
+                    <table>
+                    {% for k2,v2 in v.iteritems %}
+                        <tr>
+                            <th>{{k2}}</th>
+                            <th>{{v2}}</th>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </body>
+
+</html>

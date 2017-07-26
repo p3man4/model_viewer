@@ -82,7 +82,7 @@ def info_view(request):
 
 
 
-    return render(request, 'model_viewer/info_view.html',{'q':q,'key':key,'content':content})
+    return render(request, 'model_viewer/info_view_v2.html',{'q':q,'key':key,'content':content})
 
 def search_list(request):
     q=None
