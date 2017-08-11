@@ -20,9 +20,9 @@ import os
 import smt_process.detect_class as detect_class
 DP_ROOT='/home/junwon/smt-project/SMT/detect_part/'
 
-model_list = [f for f in os.listdir(DP_ROOT) if f.endswith('model')]
-
-model= os.path.join(DP_ROOT,model_list[0])
+#model_list = [f for f in os.listdir(DP_ROOT) if f.endswith('model')]
+# model= os.path.join(DP_ROOT,model_list[0])
+model=DP_ROOT + 'cd_20170802.model'
 print "model:",model
 DC = detect_class.ComponentDetector()
 DC.get_components_from_pickle(model,callback=progressbar_callback)
