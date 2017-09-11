@@ -17,7 +17,7 @@ import cv2
 import numpy as np
 
 # change DP_ROOT as needed
-DP_ROOT='/home/junwon/smt-project/SMT/detect_part/'
+DP_ROOT='/home/junwon/smt-project/SMT-newtest/detect_part/'
 
 menu={}
 components={}
